@@ -24,6 +24,10 @@ namespace GitLabSharp.Entities
 
       [JsonProperty]
       public IEnumerable<string> Parent_Ids { get; protected set; }
+
+
+      [JsonProperty]
+      public DateTime Authored_Date { get; protected set; }
    }
 }
 
