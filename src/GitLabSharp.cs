@@ -23,6 +23,9 @@ namespace GitLabSharp
          ServicePointManager.DefaultConnectionLimit = context.ConnectionLimit;
          ServicePointManager.Expect100Continue = true;
          ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+         // Explicitly init the proxy to appease Mono:
+         // https://stackoverflow.com/questions/18655165/problems-configuring-system-net-in-mono
+         WebRequest.DefaultWebProxy = new WebProxy();
 
          _asyncOperationTimeoutMilliseconds = context.AsyncOperationTimeoutSeconds * 1000;
       }
